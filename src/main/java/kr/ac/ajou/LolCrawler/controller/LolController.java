@@ -1,5 +1,6 @@
 package kr.ac.ajou.LolCrawler.controller;
 
+import kr.ac.ajou.LolCrawler.domain.LeaguePosition;
 import kr.ac.ajou.LolCrawler.service.LolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ public class LolController {
     LolService lolService;
 
     @GetMapping("/league-position/{summonerName}")
-    public String getLeaguePosition(@PathVariable String summonerName) {
+    public LeaguePosition getLeaguePosition(@PathVariable String summonerName) {
         return lolService.getLeaguePosition(summonerName);
     }
 
