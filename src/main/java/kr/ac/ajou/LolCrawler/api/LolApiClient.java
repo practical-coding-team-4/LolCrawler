@@ -1,12 +1,14 @@
 package kr.ac.ajou.LolCrawler.api;
 
-import kr.ac.ajou.LolCrawler.domain.LeaguePosition;
+import kr.ac.ajou.LolCrawler.domain.LeagueEntryDTO;
 import kr.ac.ajou.LolCrawler.domain.SummonerDTO;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+
+import java.util.Set;
 
 @Service
 public class LolApiClient {
@@ -23,9 +25,10 @@ public class LolApiClient {
         return res.getId();
     }
 
-    public LeaguePosition requestLeaugePosition(String encryptedSummonerId) {
-        LeaguePosition leaguePosition = restTemplate.exchange(positionsApiUrl, HttpMethod.GET, null, LeaguePosition.class, encryptedSummonerId, api_key)
-                .getBody();
+
+    public Set<LeagueEntryDTO> requestLeaugePosition(String encryptedSummonerId) {
+        Set<LeagueEntryDTO> leaguePosition = restTemplate.exchange(positionsApiUrl, HttpMethod.GET, null, Set.class, encryptedSummonerId, api_key)
+        .getBody();
         return leaguePosition;
     }
 }
