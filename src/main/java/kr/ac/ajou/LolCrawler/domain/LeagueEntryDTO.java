@@ -8,6 +8,13 @@ public class LeagueEntryDTO{
     private String queueType;
     private String summonerName;
     private boolean hotStreak;
+    class MiniSeriesDTO {
+        String progress;
+        int losses;
+        int target;
+        int wins;
+    }
+    private MiniSeriesDTO miniSeries;
     private int wins;
     private boolean veteran;
     private int losses;
