@@ -2,7 +2,6 @@ package kr.ac.ajou.LolCrawler.domain;
 
 import lombok.Data;
 
-
 @Data
 public class LeagueEntryDTO{
     private String queueType;
