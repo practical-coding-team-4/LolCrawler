@@ -7,21 +7,24 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.Set;
+import java.util.List;
 
 @Repository
 public class EncryptedIdRepository {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    public void insertLeagueEntryDTO(Set<LeagueEntryDTO> leagueEntryDTOS)
-    {
+    public void insertLeagueEntryDTO(List<LeagueEntryDTO> leagueEntryDTOS){
         mongoTemplate.insertAll(leagueEntryDTOS);
     }
 
-    public Set findLeagueEntryDTO(String summonerId){
+    public void updateLeagueEntryDTO(List<LeagueEntryDTO> leagueEntryDTOS){
+
+    }
+
+    public LeagueEntryDTO findLeagueEntryDTO(String encryptedSummonerId){
         Query query = new Query();
-        query.addCriteria(Criteria.where("summonerName").is(summonerId));
-        return mongoTemplate.findOne(query, Set.class);
+        query.addCriteria(Criteria.where("summonerId").is(encryptedSummonerId));
+        return mongoTemplate.findOne(query,LeagueEntryDTO.class);
     }
 }
