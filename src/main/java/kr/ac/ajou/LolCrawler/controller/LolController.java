@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Set;
+import java.util.List;
 
 @RestController
 public class LolController {
@@ -15,7 +15,7 @@ public class LolController {
     LolService lolService;
 
     @GetMapping("/league-position/{summonerName}")
-    public Set<LeagueEntryDTO> getLeaguePosition(@PathVariable String summonerName) {
+    public List<LeagueEntryDTO> getLeaguePosition(@PathVariable String summonerName) {
         return lolService.getLeaguePosition(summonerName);
     }
 

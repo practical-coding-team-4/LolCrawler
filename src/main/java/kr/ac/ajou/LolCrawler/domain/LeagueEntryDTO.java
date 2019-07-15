@@ -2,18 +2,11 @@ package kr.ac.ajou.LolCrawler.domain;
 
 import lombok.Data;
 
-
 @Data
 public class LeagueEntryDTO{
     private String queueType;
     private String summonerName;
     private boolean hotStreak;
-    class MiniSeriesDTO {
-        String progress;
-        int losses;
-        int target;
-        int wins;
-    }
     private MiniSeriesDTO miniSeries;
     private int wins;
     private boolean veteran;
@@ -25,7 +18,4 @@ public class LeagueEntryDTO{
     private String tier;
     private String summonerId;
     private int leaguePoints;
-
-
 }
-
