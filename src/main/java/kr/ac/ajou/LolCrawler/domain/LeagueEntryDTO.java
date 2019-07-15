@@ -18,14 +18,6 @@ public class LeagueEntryDTO{
     private String tier;
     private String summonerId;
     private int leaguePoints;
-
-    @Data
-    class MiniSeriesDTO {
-        String progress;
-        int losses;
-        int target;
-        int wins;
-    }
 }
 
 

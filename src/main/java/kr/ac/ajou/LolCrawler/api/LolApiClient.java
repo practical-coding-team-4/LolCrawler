@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 public class LolApiClient {
-    private final String api_key = "RGAPI-5480bc88-18ed-4b7c-bdec-10154d1acfc0";
+    private final String api_key = "RGAPI-3b37d5bc-89e7-4453-91d5-0d7b6478edc2";
     private final String summonersApiUrl = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonerName}?api_key={api_key}";
     private final String positionsApiUrl = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{encryptedSummonerId}?api_key={api_key}";
 

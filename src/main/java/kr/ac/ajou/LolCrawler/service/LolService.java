@@ -23,14 +23,7 @@ public class LolService {
         log.info("Encrypted Summoner Id: {}", encryptedId);
         List<LeagueEntryDTO> leagueEntryDTOS = lolApiClient.requestLeaugePosition(encryptedId);
 
-        if(encryptedIdRepository.findLeagueEntryDTO(encryptedId) != null){
-            encryptedIdRepository.updateLeagueEntryDTO(leagueEntryDTOS);
-            log.info("LeagueEntryDTOS has been updated successfully in DB: " + leagueEntryDTOS);
-
-        }else {
-            encryptedIdRepository.insertLeagueEntryDTO(leagueEntryDTOS);
-            log.info("LeagueEntryDTOS has been inserted successfully in DB: " + leagueEntryDTOS);
-        }
+        encryptedIdRepository.updateLeagueEntryDTO(leagueEntryDTOS);
 
         return leagueEntryDTOS;
     }
