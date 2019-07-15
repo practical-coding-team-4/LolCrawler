@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 
-import java.util.Set;
+import java.util.List;
 
 @Service
 public class LolApiClient {
-    private final String api_key = "RGAPI-11baa09c-49d7-4fc1-a16c-cb036f28f4d1";
+    private final String api_key = "RGAPI-5480bc88-18ed-4b7c-bdec-10154d1acfc0";
     private final String summonersApiUrl = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonerName}?api_key={api_key}";
     private final String positionsApiUrl = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{encryptedSummonerId}?api_key={api_key}";
 
@@ -28,10 +28,10 @@ public class LolApiClient {
     }
 
 
-    public Set<LeagueEntryDTO> requestLeaugePosition(String encryptedSummonerId) {
-        ResponseEntity<Set<LeagueEntryDTO>> actualExample = restTemplate.exchange(positionsApiUrl, HttpMethod.GET,
-                null, new ParameterizedTypeReference<Set<LeagueEntryDTO>>() {}, encryptedSummonerId, api_key);
-        Set<LeagueEntryDTO> leaguePosition = actualExample.getBody();
+    public List<LeagueEntryDTO> requestLeaugePosition(String encryptedSummonerId) {
+        ResponseEntity<List<LeagueEntryDTO>> actualExample = restTemplate.exchange(positionsApiUrl, HttpMethod.GET,
+                null, new ParameterizedTypeReference<List<LeagueEntryDTO>>() {}, encryptedSummonerId, api_key);
+        List<LeagueEntryDTO> leaguePosition = actualExample.getBody();
         return leaguePosition;
     }
 }
