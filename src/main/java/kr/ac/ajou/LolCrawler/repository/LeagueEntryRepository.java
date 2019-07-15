@@ -14,7 +14,7 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 @Repository
 @Slf4j
-public class EncryptedIdRepository {
+public class LeagueEntryRepository {
     @Autowired
     private MongoTemplate mongoTemplate;
 
