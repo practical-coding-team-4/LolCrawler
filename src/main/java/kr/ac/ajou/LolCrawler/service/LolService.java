@@ -23,7 +23,6 @@ public class LolService {
         List<LeagueEntryDTO> leagueEntryDTOS = lolApiClient.requestLeaugePosition(encryptedId);
 
         leagueEntryRepository.updateLeagueEntryDTO(leagueEntryDTOS);
-
         return leagueEntryDTOS;
     }
 }
